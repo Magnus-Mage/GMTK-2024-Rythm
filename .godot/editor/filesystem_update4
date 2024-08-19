@@ -1,6 +1,6 @@
 res://World/world.tscn
-res://Player/player.gd
+res://Audio/Music/snd_Music.gd
 res://Player/player.tscn
 res://TitleScreen/menu.tscn
-res://Player/Attack/javelin.gd
-res://Audio/Music/snd_Music.gd
+res://Player/player.gd
+res://Enemy/enemy.gd

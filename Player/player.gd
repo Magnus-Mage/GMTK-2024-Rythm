@@ -76,12 +76,19 @@ var enemy_close = []
 
 #Signal
 signal playerdeath
+# Signal to notify enemies of level change
+signal level_up(new_level)
 
 func _ready():
 	upgrade_character("icespear1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0,0,0)
+	
+func some_function():
+	print("Before delay")
+	await get_tree().create_timer(3.0).timeout  # 1-second delay
+	print("After delay")	
 
 func _physics_process(delta):
 	movement()
@@ -97,6 +104,7 @@ func movement():
 	
 	# Check if any movement key is pressed and ensure it's only triggered once per press
 	if mov != Vector2.ZERO and not key_pressed:
+		
 		key_pressed = true
 		
 		if mov.x > 0:
@@ -271,6 +279,7 @@ func set_expbar(set_value = 1, set_max_value = 100):
 
 func levelup():
 	sndLevelUp.play()
+	
 	lblLevel.text = str("Level: ",experience_level)
 	var tween = levelPanel.create_tween()
 	tween.tween_property(levelPanel,"position",Vector2(220,50),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
@@ -284,6 +293,7 @@ func levelup():
 		upgradeOptions.add_child(option_choice)
 		options += 1
 	get_tree().paused = true
+	emit_signal("level_up", experience_level)
 
 func upgrade_character(upgrade):
 	match upgrade:
