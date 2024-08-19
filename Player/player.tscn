@@ -60,19 +60,19 @@ shape = SubResource("RectangleShape2D_yfi4i")
 
 [node name="IceSpearTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 0.07
+wait_time = 0.09
 
 [node name="IceSpearAttackTimer" type="Timer" parent="Attack/IceSpearTimer"]
 unique_name_in_owner = true
-wait_time = 0.07
+wait_time = 0.09
 
 [node name="TornadoTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 0.07
+wait_time = 0.09
 
 [node name="TornadoAttackTimer" type="Timer" parent="Attack/TornadoTimer"]
 unique_name_in_owner = true
-wait_time = 0.07
+wait_time = 0.9
 
 [node name="JavelinBase" type="Node2D" parent="Attack"]
 unique_name_in_owner = true
