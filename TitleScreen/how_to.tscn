@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bk7ck3546dx1c"]
+
+[node name="HowTo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 142.0
+offset_bottom = 163.0
+text = "How to Move:
+
+etc 
+
+etc"

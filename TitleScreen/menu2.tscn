@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://bymdocqswvbbw"]
+
+[ext_resource type="Script" path="res://TitleScreen/menu2.gd" id="1_iwgpf"]
+[ext_resource type="FontFile" uid="uid://f1haaf8c2qbb" path="res://Font/alpha_echo.ttf" id="1_o4u6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87rpw"]
+bg_color = Color(0.786347, 0.786347, 0.786347, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot6un"]
+bg_color = Color(0.612982, 0.758165, 0.75829, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ay724"]
+bg_color = Color(0.327374, 0.528877, 0.662333, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tlb82"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y74kx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iwgpf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 49.0
+offset_right = -92.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.184314, 0.184314, 0.721569)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 5.0
+offset_right = 77.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_87rpw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ot6un")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ay724")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tlb82")
+text = "Start"
+
+[node name="HowToButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_87rpw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ot6un")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ay724")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y74kx")
+text = "How to Play"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.5
+offset_top = -59.0
+offset_right = 129.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_o4u6e")
+theme_override_font_sizes/font_size = 37
+text = "TITLE PENDING"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/HowToButton" to="." method="_on_how_to_pressed"]

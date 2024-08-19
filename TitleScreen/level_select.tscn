@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://ba12dq5734nqh"]
+
+[ext_resource type="Script" path="res://TitleScreen/level_select.gd" id="1_katoa"]
+[ext_resource type="Texture2D" uid="uid://ch3tvsahqhw4n" path="res://TitleScreen/padlock (1).png" id="1_sf0oy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j33y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hfsq"]
+bg_color = Color(0.384314, 0.623529, 0.737255, 0.337255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0102"]
+bg_color = Color(0.258382, 0.450762, 0.788749, 0.627451)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cr1po"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2ljs"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_katoa")
+
+[node name="ButtonLv3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -142.0
+offset_right = 52.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0j33y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7hfsq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t0102")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cr1po")
+
+[node name="ColorRect3" type="ColorRect" parent="ButtonLv3"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 84.0
+color = Color(0.270588, 0.270588, 0.270588, 0.678431)
+
+[node name="Sprite3" type="Sprite2D" parent="ButtonLv3"]
+position = Vector2(54, 41)
+scale = Vector2(0.0898438, 0.0898438)
+texture = ExtResource("1_sf0oy")
+
+[node name="ButtonLv2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -54.0
+offset_right = 86.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w2ljs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7hfsq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t0102")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cr1po")
+
+[node name="ColorRect2" type="ColorRect" parent="ButtonLv2"]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 170.0
+offset_bottom = 97.0
+color = Color(0.270588, 0.270588, 0.270588, 0.678431)
+
+[node name="Sprite2" type="Sprite2D" parent="ButtonLv2"]
+position = Vector2(87, 50)
+scale = Vector2(0.106445, 0.106445)
+texture = ExtResource("1_sf0oy")
+
+[node name="ButtonLv1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 49.0
+offset_right = 60.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0j33y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7hfsq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t0102")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cr1po")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 180)
+
+[connection signal="pressed" from="ButtonLv3" to="." method="_on_button_lv_3_pressed"]
+[connection signal="pressed" from="ButtonLv2" to="." method="_on_button_lv_2_pressed"]
+[connection signal="pressed" from="ButtonLv1" to="." method="_on_button_lv_1_pressed"]
