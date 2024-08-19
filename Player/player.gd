@@ -102,9 +102,7 @@ func movement():
 	var y_mov = Input.get_action_strength("down") - Input.get_action_strength("up")
 	var mov = Vector2(x_mov, y_mov)
 	
-	# Check if any movement key is pressed and ensure it's only triggered once per press
 	if mov != Vector2.ZERO and not key_pressed:
-		
 		key_pressed = true
 		
 		if mov.x > 0:
@@ -128,23 +126,18 @@ func movement():
 		attack()
 
 	elif mov == Vector2.ZERO:
-		# Reset the key_pressed flag when no movement is detected
 		key_pressed = false
 		
 		# Stop attack if no movement
 		stop_attack()
+	
+
 
 # To detect key releases, add the following to the `_input` function:
 func _input(event):
-	if event is InputEventKey and event.is_action_released("right"):
-		key_pressed = false
-	elif event is InputEventKey and event.is_action_released("left"):
-		key_pressed = false
-	elif event is InputEventKey and event.is_action_released("up"):
-		key_pressed = false
-	elif event is InputEventKey and event.is_action_released("down"):
-		key_pressed = false
-
+	if event is InputEventKey:
+		if event.is_action_released("right") or event.is_action_released("left") or event.is_action_released("up") or event.is_action_released("down"):
+			key_pressed = false
 
 func attack():
 	if icespear_level > 0:
@@ -161,9 +154,13 @@ func attack():
 func stop_attack():
 	if icespear_level > 0 and not iceSpearTimer.is_stopped():
 		iceSpearTimer.stop()
+		
 	if tornado_level > 0 and not tornadoTimer.is_stopped():
 		tornadoTimer.stop()
-	# Add any additional logic to stop the javelin attack if needed
+		
+	if javelin_level > 0:
+		# Add logic to stop javelin attack if needed
+		pass
 
 
 func _on_hurt_box_hurt(damage, _angle, _knockback):
