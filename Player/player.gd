@@ -96,6 +96,7 @@ func _physics_process(delta):
 # Call this function when movement is detected
 var key_pressed = false
 var stride_distance = 30  # Adjust this value to set the stride length
+var action_used = false
 
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -123,7 +124,10 @@ func movement():
 		position += velocity
 
 		# Trigger attack when movement is detected
-		attack()
+		if not action_used:
+			attack()
+			action_used = true
+		
 
 	elif mov == Vector2.ZERO:
 		key_pressed = false
