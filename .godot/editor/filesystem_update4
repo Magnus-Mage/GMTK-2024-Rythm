@@ -1,6 +1,5 @@
 res://World/world.tscn
 res://Audio/Music/snd_Music.gd
+res://Player/player.gd
 res://Player/player.tscn
 res://TitleScreen/menu.tscn
-res://Player/player.gd
-res://Enemy/enemy.gd

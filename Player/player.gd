@@ -123,17 +123,18 @@ func movement():
 		velocity = mov.normalized() * stride_distance
 		position += velocity
 
-		# Trigger attack when movement is detected
+		# Trigger attack only if action_used is false
 		if not action_used:
 			attack()
-			action_used = true
-		
+			action_used = true  # Prevent further attacks until movement stops
 
 	elif mov == Vector2.ZERO:
 		key_pressed = false
+		action_used = false  # Reset to allow attack on next movement
 		
 		# Stop attack if no movement
 		stop_attack()
+
 	
 
 
