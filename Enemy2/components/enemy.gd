@@ -40,7 +40,6 @@ var _state_func: Callable # Called in _physics_process
 func _ready() -> void:
 	_player = MainPlayer.current
 	_player.connect("level_up", _on_player_level_up)
-	print(get_groups())
 	connect("area_entered", _on_area_entered)
 	_state_func = _move_to_target
 
