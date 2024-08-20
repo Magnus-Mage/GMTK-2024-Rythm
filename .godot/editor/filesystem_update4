@@ -1,5 +1,11 @@
-res://World/world.tscn
+res://Enemy2/laser_enemy.tscn
+res://Enemy2/melee_enemy.tscn
+res://Enemy2/ranged_enemy.tscn
 res://Audio/Music/snd_Music.gd
-res://Player/player.gd
-res://Player/player.tscn
-res://TitleScreen/menu.tscn
+res://World/world.tscn
+res://World2/test_level.tscn
+res://Player2/player.tscn
+res://Player2/player.gd
+res://Player2/player_projectile.tscn
+res://Enemy2/components/projectile.tscn
+res://Enemy2/components/laser_beam.tscn
