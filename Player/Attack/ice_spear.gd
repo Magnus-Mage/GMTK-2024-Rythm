@@ -1,4 +1,4 @@
-extends Area2D
+extends RealPlayerProjectile
 
 var level = 1
 var hp = 1

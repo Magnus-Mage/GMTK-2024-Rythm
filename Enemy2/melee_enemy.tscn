@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dln6cwdx5h3ir"]
+[gd_scene load_steps=9 format=3 uid="uid://dln6cwdx5h3ir"]
 
 [ext_resource type="Script" path="res://Enemy2/melee_enemy.gd" id="1_ecdmv"]
 [ext_resource type="Texture2D" uid="uid://8r25fjp8aqj5" path="res://Textures2/placeholder_enemy_sprite.png" id="1_l2fxp"]
+[ext_resource type="PackedScene" uid="uid://d20r3gqas2kms" path="res://Objects/experience_gem.tscn" id="2_35nkl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nsuy5"]
 radius = 15.0333
@@ -62,6 +63,7 @@ _data = {
 
 [node name="MeleeEnemy" type="Area2D" node_paths=PackedStringArray("_sprite_2d", "_nav_agent_2d", "_animation_player")]
 script = ExtResource("1_ecdmv")
+_exp_gem = ExtResource("2_35nkl")
 _sprite_2d = NodePath("Sprite2D")
 _nav_agent_2d = NodePath("NavigationAgent2D")
 _animation_player = NodePath("AnimationPlayer")
@@ -71,7 +73,6 @@ texture_filter = 1
 texture = ExtResource("1_l2fxp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(1, 0.96)
 shape = SubResource("CircleShape2D_nsuy5")
 

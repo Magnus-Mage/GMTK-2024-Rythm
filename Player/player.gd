@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 
 static var current: MainPlayer
+static var damage_amount: int
+
+@export var _damage_amount: int = 20
 
 var movement_speed = 40.0
 var hp = 80
@@ -86,6 +89,7 @@ signal level_up(new_level)
 
 func _enter_tree() -> void:
 	current = self
+	damage_amount = _damage_amount
 
 func _ready():
 	upgrade_character("icespear1")
@@ -247,7 +251,14 @@ func _on_enemy_detection_area_body_entered(body):
 func _on_enemy_detection_area_body_exited(body):
 	if enemy_close.has(body):
 		enemy_close.erase(body)
+		
+func _on_enemy_detection_area_entered(area: Area2D):
+	if area is Enemy and not enemy_close.has(area):
+		enemy_close.append(area)
 
+func _on_enemy_detection_area_exited(area: Area2D):
+	if enemy_close.has(area):
+		enemy_close.erase(area)
 
 func _on_grab_area_area_entered(area):
 	if area.is_in_group("loot"):

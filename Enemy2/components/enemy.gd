@@ -13,7 +13,10 @@ Disable enemy by:
 	Setting "target" variable to null.
 '''
 
+@export var _exp_gem: PackedScene
+
 @export_group("Properties")
+@export var _experience := 1
 @export var _health := 100
 @export var _speed := 100
 @export var _range: float = 250
@@ -31,12 +34,14 @@ var _direction: Vector2
 var _velocity := Vector2.ZERO
 var _state_func: Callable # Called in _physics_process
 
+@onready var loot_base = get_tree().get_first_node_in_group("loot")
+
 
 func _ready() -> void:
 	_player = MainPlayer.current
 	_player.connect("level_up", _on_player_level_up)
-	
-	connect("body_entered", _on_body_entered)
+	print(get_groups())
+	connect("area_entered", _on_area_entered)
 	_state_func = _move_to_target
 
 func _physics_process(delta: float) -> void:
@@ -55,7 +60,11 @@ func damage(amount: int) -> void:
 	_health -= amount
 	
 	if _health <= 0:
-		# TODO: Animation death etc.
+		var new_gem = _exp_gem.instantiate()
+		new_gem.global_position = global_position
+		new_gem.experience = _experience
+		loot_base.call_deferred("add_child", new_gem)
+		
 		death.emit()
 		queue_free()
 
@@ -91,9 +100,7 @@ func _attack() -> void:
 func _on_player_level_up(_new_level: int) -> void:
 	_apply_scaling()
 
-func _on_body_entered(body: Node2D) -> void: pass
-	#TODO:
-	# if body is Player / or / if body body.is_in_group("Player")
-	# Player.damage()
-	# if body is PlayerProjectile / or / if body body.is_in_group("PlayerProjectile")
-	# 
+func _on_area_entered(area: Area2D) -> void:
+	if area.has_method("enemy_hit"):
+		damage(_player.damage_amount)
+		area.enemy_hit(1)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://wpliv06gy0pq"]
 
 [ext_resource type="Script" path="res://Player/Attack/ice_spear.gd" id="1_4el3j"]
-[ext_resource type="Texture2D" uid="uid://ckk36r2nw8i4y" path="res://Textures/Items/Weapons/injection_ice_spear.png" id="2_ytvij"]
+[ext_resource type="Texture2D" uid="uid://ciaoitjgyu885" path="res://Textures/Items/Weapons/injection_ice_spear.png" id="2_ytvij"]
 [ext_resource type="AudioStream" uid="uid://cl3g2vts3nyt0" path="res://Audio/SoundEffect/ice.wav" id="3_esswn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4tiy"]
@@ -10,7 +10,7 @@ size = Vector2(6.36396, 33.234)
 [node name="IceSpear" type="Area2D" groups=["attack"]]
 top_level = true
 scale = Vector2(0.1, 0.1)
-collision_layer = 4
+collision_layer = 5
 collision_mask = 0
 script = ExtResource("1_4el3j")
 

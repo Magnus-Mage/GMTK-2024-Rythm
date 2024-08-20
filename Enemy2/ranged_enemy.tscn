@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk47geqdeowyb"]
+[gd_scene load_steps=10 format=3 uid="uid://bk47geqdeowyb"]
 
 [ext_resource type="Script" path="res://Enemy2/ranged_enemy.gd" id="1_f583i"]
 [ext_resource type="Texture2D" uid="uid://8r25fjp8aqj5" path="res://Textures2/placeholder_enemy_sprite.png" id="2_0f3bb"]
 [ext_resource type="PackedScene" uid="uid://pxk2lugux77l" path="res://Enemy2/components/projectile.tscn" id="2_hpaxs"]
+[ext_resource type="PackedScene" uid="uid://d20r3gqas2kms" path="res://Objects/experience_gem.tscn" id="3_3q7q5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nsuy5"]
 radius = 15.0333
@@ -64,6 +65,7 @@ _data = {
 [node name="RangedEnemy" type="Area2D" node_paths=PackedStringArray("_sprite_2d", "_nav_agent_2d", "_animation_player")]
 script = ExtResource("1_f583i")
 _projectile_scene = ExtResource("2_hpaxs")
+_exp_gem = ExtResource("3_3q7q5")
 _sprite_2d = NodePath("Sprite2D")
 _nav_agent_2d = NodePath("NavigationAgent2D")
 _animation_player = NodePath("AnimationPlayer")

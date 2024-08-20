@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dga0r5mhyiu2f"]
+[gd_scene load_steps=10 format=3 uid="uid://dga0r5mhyiu2f"]
 
 [ext_resource type="Script" path="res://Enemy2/laser_enemy.gd" id="1_ahhk3"]
 [ext_resource type="PackedScene" uid="uid://b0p3i7s4sg2nj" path="res://Enemy2/components/laser_beam.tscn" id="2_wqi0o"]
 [ext_resource type="Texture2D" uid="uid://8r25fjp8aqj5" path="res://Textures2/placeholder_enemy_sprite.png" id="3_bfehx"]
+[ext_resource type="PackedScene" uid="uid://d20r3gqas2kms" path="res://Objects/experience_gem.tscn" id="3_cl0ec"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nsuy5"]
 radius = 15.0333
@@ -64,6 +65,7 @@ _data = {
 [node name="LaserEnemy" type="Area2D" node_paths=PackedStringArray("_sprite_2d", "_nav_agent_2d", "_animation_player")]
 script = ExtResource("1_ahhk3")
 _laser_beam_scene = ExtResource("2_wqi0o")
+_exp_gem = ExtResource("3_cl0ec")
 _range = 300.0
 _sprite_2d = NodePath("Sprite2D")
 _nav_agent_2d = NodePath("NavigationAgent2D")
