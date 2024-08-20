@@ -55,6 +55,7 @@ var enemy_close = []
 
 @onready var sprite = $Sprite2D
 @onready var walkTimer = get_node("%walkTimer")
+@onready var anim_player = $AnimationPlayer
 
 #GUI
 @onready var expBar = get_node("%ExperienceBar")
@@ -102,6 +103,7 @@ func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var y_mov = Input.get_action_strength("down") - Input.get_action_strength("up")
 	var mov = Vector2(x_mov, y_mov)
+	anim_player.play("idle")
 	
 	if mov != Vector2.ZERO and not key_pressed:
 		key_pressed = true

@@ -68,6 +68,6 @@ func _on_player_level_up(new_level):
 
 func apply_scaling():
 	# Adjust the size and hitbox proportionally to the player's level
-	var scale_factor = 1.0 + (player.experience_level - 1) * 0.2  # Adjust the multiplier as needed
+	var scale_factor = 0.25 + (player.experience_level - 1) * 0.2  # Adjust the multiplier as needed
 	sprite.scale = Vector2(scale_factor, scale_factor)
 	hitBox.scale = Vector2(scale_factor, scale_factor)

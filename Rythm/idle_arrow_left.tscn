@@ -1,17 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://btorw0aljk63c"]
+[gd_scene load_steps=9 format=3 uid="uid://btorw0aljk63c"]
 
 [ext_resource type="Texture2D" uid="uid://b3ivca5fufhwe" path="res://Textures/arrow_button/left/arrow_button_left3.png" id="1_8k12h"]
+[ext_resource type="Script" path="res://Rythm/idle_arrow_left.gd" id="1_ujxfj"]
 [ext_resource type="Texture2D" uid="uid://c1x2hm7qx33fh" path="res://Textures/arrow_button/left/arrow_button_left2.png" id="2_gfe3t"]
+[ext_resource type="AudioStream" uid="uid://cvighfuoxw2kx" path="res://Audio/SoundEffect/beat1.wav" id="4_qwm20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjcbu"]
 size = Vector2(24, 24)
 
+[sub_resource type="Animation" id="Animation_g4cc7"]
+resource_name = "good"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oyduw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qgob2"]
+_data = {
+"RESET": SubResource("Animation_oyduw"),
+"good": SubResource("Animation_g4cc7")
+}
+
 [node name="Idle_ArrowLeft" type="Area2D"]
+script = ExtResource("1_ujxfj")
 
 [node name="Sprite2D_Idle" type="Sprite2D" parent="."]
 texture = ExtResource("1_8k12h")
 
 [node name="Sprite2D_Good" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_gfe3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,3 +59,15 @@ shape = SubResource("RectangleShape2D_pjcbu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D_Good")
+libraries = {
+"": SubResource("AnimationLibrary_qgob2")
+}
+
+[node name="Sound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qwm20")
+
+[node name="Sound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qwm20")
+
+[connection signal="area_shape_entered" from="." to="." method="_Idle_ArrowLeft_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_Idle_ArrowLeft_on_area_shape_exited"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://gvm5jcbbgwdv"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_1bh7b"]
-[ext_resource type="Texture2D" uid="uid://bb2tqmla8xdg8" path="res://Textures/Enemy/kolbold_weak.png" id="2_ojadc"]
+[ext_resource type="Texture2D" uid="uid://cygv7g7b34mhi" path="res://Textures/Enemy/germ_kobold.png" id="2_lpn23"]
 [ext_resource type="PackedScene" uid="uid://xy3cvpwdy828" path="res://Utility/hurt_box.tscn" id="3_gamcv"]
 [ext_resource type="PackedScene" uid="uid://uhr6mtuisqm1" path="res://Utility/hit_box.tscn" id="4_vdnsx"]
 [ext_resource type="AudioStream" uid="uid://bi7t7cjthnhhc" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_03jve"]
@@ -27,7 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_w8hns"]
 resource_name = "walk"
-length = 0.6
+length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -36,10 +36,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 0]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_regpg"]
@@ -62,8 +62,8 @@ script = ExtResource("1_1bh7b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_ojadc")
-hframes = 2
+texture = ExtResource("2_lpn23")
+vframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 3)
