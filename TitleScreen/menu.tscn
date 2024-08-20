@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcyka5e06knff"]
+[gd_scene load_steps=5 format=3 uid="uid://dcyka5e06knff"]
 
 [ext_resource type="Script" path="res://TitleScreen/menu.gd" id="1_oi0p3"]
 [ext_resource type="FontFile" uid="uid://cb4e8g30xxp5u" path="res://Font/tenderness.otf" id="1_xdjxl"]
+[ext_resource type="Texture2D" uid="uid://6m53aefw83d0" path="res://Textures/GUI/background_gmtk.png" id="2_tdkwy"]
 [ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="3_kwsdd"]
 
 [node name="Menu" type="Control"]
@@ -13,19 +14,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oi0p3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 673.0
-offset_bottom = 382.0
-color = Color(0.572549, 0.207843, 0.168627, 1)
+offset_right = 1700.0
+offset_bottom = 1300.0
+scale = Vector2(0.376477, 0.277255)
+texture = ExtResource("2_tdkwy")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 640.0
-offset_bottom = 100.0
+offset_bottom = 161.0
 theme_override_fonts/font = ExtResource("1_xdjxl")
 theme_override_font_sizes/font_size = 72
-text = "Survivors Clone #13247"
+text = "Jimmy's Neutron
+ Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
