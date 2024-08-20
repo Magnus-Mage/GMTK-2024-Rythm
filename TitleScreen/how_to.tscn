@@ -1,10 +1,39 @@
-[gd_scene format=3 uid="uid://bk7ck3546dx1c"]
+[gd_scene load_steps=6 format=3 uid="uid://bk7ck3546dx1c"]
+
+[ext_resource type="Script" path="res://TitleScreen/how_to.gd" id="1_0g78i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27nvp"]
+bg_color = Color(0.786347, 0.786347, 0.786347, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_te5ui"]
+bg_color = Color(0.612982, 0.758165, 0.75829, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ffp"]
+bg_color = Color(0.327374, 0.528877, 0.662333, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5k6fq"]
 
 [node name="HowTo" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_0g78i")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -17,3 +46,21 @@ text = "How to Move:
 etc 
 
 etc"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 486.0
+offset_top = 287.0
+offset_right = 578.0
+offset_bottom = 310.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_27nvp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_te5ui")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i4ffp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5k6fq")
+text = "Back
+"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

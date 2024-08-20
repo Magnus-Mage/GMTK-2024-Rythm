@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bduhld783qbpp"]
+[gd_scene load_steps=10 format=3 uid="uid://bduhld783qbpp"]
 
-[ext_resource type="Texture2D" uid="uid://b2ph7evjnjw8t" path="res://Textures2/placeholder_background.png" id="1_8p1lc"]
+[ext_resource type="Texture2D" uid="uid://dp1jtrqn05acm" path="res://Textures2/placeholder_background.png" id="1_8p1lc"]
+[ext_resource type="Script" path="res://World2/test_level.gd" id="1_ch83t"]
 [ext_resource type="PackedScene" uid="uid://cg1ycnx5fwjvh" path="res://Player2/player.tscn" id="2_4moqp"]
 [ext_resource type="PackedScene" uid="uid://dln6cwdx5h3ir" path="res://Enemy2/melee_enemy.tscn" id="2_41as0"]
 [ext_resource type="PackedScene" uid="uid://dga0r5mhyiu2f" path="res://Enemy2/laser_enemy.tscn" id="3_jjff0"]
@@ -30,6 +31,7 @@ sources/0 = SubResource("TileSetAtlasSource_dtt0l")
 
 [node name="TestLevel" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_ch83t")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 2

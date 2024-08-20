@@ -36,8 +36,7 @@ func zoom_process():
 func play_transition():
 	TransitionAnim.transistion()
 	await TransitionAnim.on_transition_finished
-	## get_tree().change_scene_to_file(scene_load)
-	
+
 func unlocker():
 	if unlocked >= 1:
 		color_rect_2.visible = false
@@ -49,7 +48,8 @@ func unlocker():
 func _on_button_lv_1_pressed():
 	scene_change = true
 	zoom_position = Vector2(323 , 276)
-	## scene_load = " "
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://World2/test_level.tscn")
 
 func _on_button_lv_2_pressed():
 	scene_change = true
