@@ -2,34 +2,33 @@
 
 [ext_resource type="Script" path="res://TitleScreen/menu2.gd" id="1_iwgpf"]
 [ext_resource type="FontFile" uid="uid://f1haaf8c2qbb" path="res://Font/alpha_echo.ttf" id="1_o4u6e"]
+[ext_resource type="PackedScene" uid="uid://b7c7gsdx2rkjm" path="res://Utility/basic_button.tscn" id="2_ilsx0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87rpw"]
-bg_color = Color(0.786347, 0.786347, 0.786347, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qec6h"]
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot6un"]
-bg_color = Color(0.612982, 0.758165, 0.75829, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y01aw"]
+bg_color = Color(0.765294, 0.988113, 0.972175, 0.607843)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ay724"]
-bg_color = Color(0.327374, 0.528877, 0.662333, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3o4v"]
+bg_color = Color(0.415686, 0.607843, 1, 0.686275)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 shadow_size = 3
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tlb82"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y74kx"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7flu"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -69,30 +68,29 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" parent="VBoxContainer" instance=ExtResource("2_ilsx0")]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_87rpw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ot6un")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ay724")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tlb82")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qec6h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y01aw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x3o4v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x7flu")
 text = "Start"
 
-[node name="HowToButton" type="Button" parent="VBoxContainer"]
+[node name="HowToButton" parent="VBoxContainer" instance=ExtResource("2_ilsx0")]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_87rpw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ot6un")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ay724")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_y74kx")
-text = "How to Play"
+theme_override_styles/normal = SubResource("StyleBoxFlat_qec6h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y01aw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x3o4v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x7flu")
+text = "How To Play"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -111,5 +109,5 @@ theme_override_fonts/font = ExtResource("1_o4u6e")
 theme_override_font_sizes/font_size = 37
 text = "TITLE PENDING"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/HowToButton" to="." method="_on_how_to_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HowToButton" to="." method="_on_how_to_button_pressed"]
