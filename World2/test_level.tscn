@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bduhld783qbpp"]
 
-[ext_resource type="Texture2D" uid="uid://de05m1lhdd83b" path="res://Textures2/placeholder_background.png" id="1_8p1lc"]
+[ext_resource type="Texture2D" uid="uid://b2ph7evjnjw8t" path="res://Textures2/placeholder_background.png" id="1_8p1lc"]
 [ext_resource type="PackedScene" uid="uid://cg1ycnx5fwjvh" path="res://Player2/player.tscn" id="2_4moqp"]
 [ext_resource type="PackedScene" uid="uid://dln6cwdx5h3ir" path="res://Enemy2/melee_enemy.tscn" id="2_41as0"]
 [ext_resource type="PackedScene" uid="uid://dga0r5mhyiu2f" path="res://Enemy2/laser_enemy.tscn" id="3_jjff0"]
