@@ -1,0 +1,10 @@
+*.swp
+
+
+## GODOT ##
+
+# This folder stores all the files it imports automatically based on your source assets and their import flags.
+.godot
+.import
+*.import
+
