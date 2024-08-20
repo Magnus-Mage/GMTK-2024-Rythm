@@ -61,9 +61,10 @@ _data = {
 "RESET": SubResource("Animation_qoh6g")
 }
 
-[node name="RangedEnemy" type="Area2D" node_paths=PackedStringArray("_nav_agent_2d", "_animation_player")]
+[node name="RangedEnemy" type="Area2D" node_paths=PackedStringArray("_sprite_2d", "_nav_agent_2d", "_animation_player")]
 script = ExtResource("1_f583i")
 _projectile_scene = ExtResource("2_hpaxs")
+_sprite_2d = NodePath("Sprite2D")
 _nav_agent_2d = NodePath("NavigationAgent2D")
 _animation_player = NodePath("AnimationPlayer")
 

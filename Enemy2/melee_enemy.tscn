@@ -60,8 +60,9 @@ _data = {
 "RESET": SubResource("Animation_qoh6g")
 }
 
-[node name="MeleeEnemy" type="Area2D" node_paths=PackedStringArray("_nav_agent_2d", "_animation_player")]
+[node name="MeleeEnemy" type="Area2D" node_paths=PackedStringArray("_sprite_2d", "_nav_agent_2d", "_animation_player")]
 script = ExtResource("1_ecdmv")
+_sprite_2d = NodePath("Sprite2D")
 _nav_agent_2d = NodePath("NavigationAgent2D")
 _animation_player = NodePath("AnimationPlayer")
 

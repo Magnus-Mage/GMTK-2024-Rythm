@@ -1,5 +1,8 @@
+class_name MainPlayer
 extends CharacterBody2D
 
+
+static var current: MainPlayer
 
 var movement_speed = 40.0
 var hp = 80
@@ -79,6 +82,10 @@ var enemy_close = []
 signal playerdeath
 # Signal to notify enemies of level change
 signal level_up(new_level)
+
+
+func _enter_tree() -> void:
+	current = self
 
 func _ready():
 	upgrade_character("icespear1")

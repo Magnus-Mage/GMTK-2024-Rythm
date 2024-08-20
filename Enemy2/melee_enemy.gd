@@ -9,7 +9,7 @@ var _is_dashing := false
 
 
 func _physics_process(delta: float) -> void:
-	if not target: return
+	if not _player: return
 	
 	_direction = Vector2.ZERO
 	_seek_target()

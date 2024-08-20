@@ -13,19 +13,19 @@ Disable enemy by:
 	Setting "target" variable to null.
 '''
 
-@export_category("External")
-@export var target: Node2D
-
 @export_group("Properties")
 @export var _health := 100
 @export var _speed := 100
 @export var _range: float = 250
 
 @export_group("Nodes")
+@export var _sprite_2d: Sprite2D
 @export var _nav_agent_2d: NavigationAgent2D
 @export var _animation_player: AnimationPlayer
 
 const DECELERATION := 0.2
+
+var _player: MainPlayer
 
 var _direction: Vector2
 var _velocity := Vector2.ZERO
@@ -33,11 +33,14 @@ var _state_func: Callable # Called in _physics_process
 
 
 func _ready() -> void:
+	_player = MainPlayer.current
+	_player.connect("level_up", _on_player_level_up)
+	
 	connect("body_entered", _on_body_entered)
 	_state_func = _move_to_target
 
 func _physics_process(delta: float) -> void:
-	if not target: return
+	if not _player: return
 	
 	_direction = Vector2.ZERO
 	_seek_target()
@@ -58,16 +61,19 @@ func damage(amount: int) -> void:
 
 func _seek_target() -> void:
 	await get_tree().physics_frame
-	_nav_agent_2d.target_position = target.global_position
+	_nav_agent_2d.target_position = _player.global_position
 
 func _decelerate() -> void:
 	_velocity = _velocity.slerp(Vector2.ZERO, DECELERATION)
 
+func _apply_scaling():
+	 #Adjust the size and hitbox proportionally to the player's level
+	var scale_factor = _sprite_2d.scale.x + (_player.experience_level - 1) * 0.2  # Adjust the multiplier as needed
+	_sprite_2d.scale = Vector2(scale_factor, scale_factor)
+
 # STATE FUNCTIONS
 # Override to give unique abilities
 func _move_to_target() -> void:
-	if not target: return
-	
 	if _nav_agent_2d.distance_to_target() > _range:
 		_direction = global_position.direction_to(_nav_agent_2d.get_next_path_position())
 		_velocity = _direction * _speed
@@ -82,6 +88,9 @@ func _attack() -> void:
 		_state_func = _move_to_target
 
 # SIGNAL HANDLERS
+func _on_player_level_up(_new_level: int) -> void:
+	_apply_scaling()
+
 func _on_body_entered(body: Node2D) -> void: pass
 	#TODO:
 	# if body is Player / or / if body body.is_in_group("Player")
