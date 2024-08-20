@@ -73,7 +73,7 @@ wait_time = 0.09
 
 [node name="TornadoAttackTimer" type="Timer" parent="Attack/TornadoTimer"]
 unique_name_in_owner = true
-wait_time = 0.2
+wait_time = 0.15
 one_shot = true
 
 [node name="JavelinBase" type="Node2D" parent="Attack"]
